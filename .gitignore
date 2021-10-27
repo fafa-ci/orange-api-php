@@ -1,0 +1,10 @@
+
+/log/*
+/tmp/*
+/tests/*
+/vendor/*
+
+.git/*
+.idea/*
+
+.phpunit*
