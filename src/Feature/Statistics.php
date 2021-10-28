@@ -38,7 +38,7 @@ class Statistics extends OrangeApi
     }
 
     /**
-     * @param array $args ['country_code' => $country_code, 'app_id' => $app_id]
+     * @param array $args ['country' => $country_code, 'appid' => $app_id]
      * @return PartnerStatisticResponse
      * @throws \Exception
      */

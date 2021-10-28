@@ -19,7 +19,7 @@ class Balance extends OrangeApi
         $data = [];
 
         if ($args !== null) {
-            $data['country_code'] = $args;
+            $data['country'] = $args;
         }
 
         return Requests::call(
