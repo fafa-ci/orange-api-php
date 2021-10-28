@@ -48,18 +48,24 @@ abstract class OrangeApi
         $callResponse = $this->query($args);
 
         if (!array_key_exists('code', $callResponse) || !array_key_exists('response', $callResponse)) {
-            throw new \RuntimeException('Response is malformed.');
+            throw new \RuntimeException('Response is malformed');
         }
 
         if ($callResponse['code'] !== $response_code) {
-            if ($callResponse['code'] === 401 && $callResponse['response']['code'] === 42) {
+            if ($callResponse['code'] === 401) {
                 unlink($this->authorization->getLogPath());
 
                 if ($this->isAuthorized()) {
                     $callResponse = $this->attempt($args, $response_code);
                 }
+            } else {
+                throw new \RuntimeException(
+                    $callResponse['response']['description'],
+                    $callResponse['response']['code']
+                );
             }
         }
+
         return $callResponse;
     }
 }
