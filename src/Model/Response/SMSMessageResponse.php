@@ -14,4 +14,9 @@ class SMSMessageResponse
             $this->outboundSMSMessageRequest = new OutboundSMSMessageRequest($args['outboundSMSMessageRequest']);
         }
     }
+
+    public function toArray(): array
+    {
+        return json_decode(json_encode($this->outboundSMSMessageRequest), JSON_OBJECT_AS_ARRAY);
+    }
 }

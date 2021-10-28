@@ -5,6 +5,7 @@ namespace Aymardkouakou\OrangeApiPhp\Model\Data;
 class OutboundSMSMessageRequest
 {
     public ?array $address;
+    public ?string $resourceURL;
     public ?string $senderAddress;
     public ?OutboundSMSTextMessage $outboundSMSTextMessage;
 
@@ -12,6 +13,9 @@ class OutboundSMSMessageRequest
     {
         if (array_key_exists('address', $args)) {
             $this->address = $args['address'];
+        }
+        if (array_key_exists('resourceURL', $args)) {
+            $this->resourceURL = $args['resourceURL'];
         }
         if (array_key_exists('senderAddress', $args)) {
             $this->senderAddress = $args['senderAddress'];
