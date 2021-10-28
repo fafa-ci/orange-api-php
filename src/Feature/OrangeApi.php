@@ -60,8 +60,7 @@ abstract class OrangeApi
                 }
             } else {
                 throw new \RuntimeException(
-                    $callResponse['response']['description'],
-                    $callResponse['response']['code']
+                    json_encode($callResponse['response'])
                 );
             }
         }
